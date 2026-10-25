@@ -1,0 +1,576 @@
+
+/* =========================================
+   FRESHFOLD LAUNDRY SHOP
+   Main website and admin dashboard styles
+   ========================================= */
+
+/* 1. Global settings */
+:root {
+    --teal: #087f8c;
+    --teal-dark: #075b63;
+    --teal-light: #dff4f1;
+    --cream: #fbf8f0;
+    --white: #ffffff;
+    --text: #263b3d;
+    --muted: #667779;
+    --border: #dce8e5;
+    --success: #18794e;
+    --error: #b42318;
+    --shadow: 0 12px 35px rgba(25, 67, 68, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--teal);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--teal-dark);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+.button {
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    background: var(--teal);
+    color: var(--white);
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+}
+
+button:hover,
+.button:hover {
+    background: var(--teal-dark);
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #e8b84b;
+    outline-offset: 3px;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.25;
+    color: var(--teal-dark);
+}
+
+h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    letter-spacing: -1.8px;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    letter-spacing: -0.7px;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.section {
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--teal);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 2. Website navigation */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+.header-inner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    color: var(--teal-dark);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.header-inner nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.header-inner nav a {
+    color: var(--text);
+    font-size: 0.94rem;
+    font-weight: 600;
+}
+
+.header-inner nav a:hover {
+    color: var(--teal);
+}
+
+/* 3. Homepage hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0 120px;
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(255, 255, 255, 0.85),
+            transparent 25%
+        ),
+        linear-gradient(120deg, #e3f5f0, #fbf8f0 72%);
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    max-width: 720px;
+    margin-bottom: 22px;
+}
+
+.hero p:not(.eyebrow) {
+    max-width: 570px;
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 1.12rem;
+}
+
+.hero .button {
+    padding: 14px 25px;
+}
+
+/* 4. Service cards */
+#services {
+    text-align: center;
+}
+
+#services > p {
+    color: var(--muted);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 42px;
+    text-align: left;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(25, 67, 68, 0.12);
+}
+
+.service-card h3 {
+    margin-bottom: 14px;
+}
+
+.service-card p {
+    color: var(--muted);
+}
+
+.service-card .price {
+    margin: auto 0 0;
+    padding-top: 16px;
+    color: var(--teal);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.service-card .price span {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 5. Contact section */
+.contact-section {
+    background: var(--cream);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 65px;
+}
+
+.contact-layout > div:first-child {
+    padding-top: 20px;
+}
+
+.contact-layout > div:first-child p:not(.eyebrow) {
+    color: var(--muted);
+}
+
+.contact-card {
+    padding: 35px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.contact-card h3 {
+    margin-bottom: 24px;
+}
+
+form label {
+    display: block;
+    margin: 15px 0 7px;
+    color: var(--text);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid #cbd9d6;
+    border-radius: 9px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--teal);
+    outline: 2px solid rgba(8, 127, 140, 0.12);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact-card button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.success {
+    padding: 12px 15px;
+    color: var(--success);
+    background: #eaf8ef;
+    border-radius: 8px;
+}
+
+.error {
+    padding: 12px 15px;
+    color: var(--error);
+    background: #fff0ee;
+    border-radius: 8px;
+}
+
+/* 6. Footer */
+.site-footer {
+    padding: 26px 0;
+    color: #dcecea;
+    background: #123f43;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-footer .container {
+    width: min(1120px, calc(100% - 40px));
+}
+
+/* 7. Admin login page */
+.admin-login {
+    width: min(440px, calc(100% - 32px));
+    margin: 70px auto;
+    padding: 38px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.admin-login h1 {
+    margin-bottom: 8px;
+    font-size: 2rem;
+    letter-spacing: -0.7px;
+}
+
+.admin-login h2 {
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.admin-login > p {
+    color: var(--muted);
+}
+
+.admin-login form button {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.admin-login form label {
+    margin-top: 20px;
+}
+
+.admin-login > p:last-child {
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+/* 8. Admin dashboard */
+.dashboard {
+    width: min(1100px, calc(100% - 36px));
+    margin: 40px auto;
+}
+
+.dashboard header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    background: var(--teal-light);
+    border-radius: 16px;
+}
+
+.dashboard header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: -0.6px;
+}
+
+.dashboard header p {
+    margin: 0;
+}
+
+.dashboard header a {
+    display: inline-block;
+    padding: 9px 16px;
+    color: var(--white);
+    background: var(--teal);
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.dashboard > h2 {
+    margin-top: 38px;
+}
+
+.dashboard > form {
+    max-width: 650px;
+    padding: 28px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.dashboard > form button {
+    margin-top: 20px;
+}
+
+.dashboard section {
+    margin: 20px 0;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard section h3 {
+    margin-bottom: 10px;
+}
+
+.dashboard section p {
+    margin-bottom: 10px;
+}
+
+.dashboard section form {
+    margin-top: 15px;
+}
+
+.dashboard section button {
+    padding: 9px 15px;
+    font-size: 0.9rem;
+}
+
+.dashboard hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+/* 9. Responsive layout */
+@media (max-width: 800px) {
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero {
+        padding: 85px 0;
+    }
+
+    .section {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .header-inner nav {
+        flex-wrap: wrap;
+        gap: 8px 20px;
+    }
+
+    .hero {
+        padding: 65px 0 75px;
+    }
+
+    .hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card,
+    .contact-card {
+        padding: 24px;
+    }
+
+    .admin-login {
+        margin: 30px auto;
+        padding: 25px;
+    }
+
+    .dashboard {
+        width: calc(100% - 24px);
+        margin: 20px auto;
+    }
+
+    .dashboard header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+    .dashboard header h1 {
+        font-size: 1.7rem;
+    }
+
+    .dashboard > form,
+    .dashboard section {
+        padding: 20px;
+    }
+}
